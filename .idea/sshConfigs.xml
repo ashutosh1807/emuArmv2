@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="cares3.iitdh.ac.in" id="08f41ab5-0642-467d-bf00-bf88b2aad841" port="22" nameFormat="DESCRIPTIVE" username="ashutoshagarwal" />
+    </configs>
+  </component>
+</project>

@@ -1,3 +1,4 @@
+; Author Ashutosh Agarwal
 .main:
     MOV sp, #100000 ; initialise sp
     ;Hardcode an array

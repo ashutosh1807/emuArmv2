@@ -1,3 +1,4 @@
+; Author Ashutosh Agarwal
 .merge:
     ;REGISTERS THAT WILL BE USED IN THIS FUNCTION
     ;r1 = l
@@ -165,7 +166,7 @@ main:
     MOV r5, #0 ;i==0
     .sorted:
         CMP r5, r2
-        BEQ .done ;has the loop reached N iterations?, i < n
+        BGT .done ;has the loop reached N iterations?, i < n
         LDR  r3, [r0], #4
         .print r3
         ADD  r5, r5, #1

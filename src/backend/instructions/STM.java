@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 /**
  *
  * @author win-7
+ * Edited by Ashutosh Agarwal to remove code block {} Inconsistency 
  */
 public class STM implements InsInterface3 {
    static int[] binaryconvert = null;

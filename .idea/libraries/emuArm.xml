@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="emuArm">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/emuArm.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

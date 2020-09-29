@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="653fdd42-b56e-4cc7-aed8-bb47fc309089" name="cares3" url="http://localhost">
+        <fileTransfer rootFolder="/nfs_home/ashutoshagarwal/tejas" accessType="SFTP" host="cares3.iitdh.ac.in" port="22" sshConfigId="08f41ab5-0642-467d-bf00-bf88b2aad841" sshConfig="ashutoshagarwal@cares3.iitdh.ac.in:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

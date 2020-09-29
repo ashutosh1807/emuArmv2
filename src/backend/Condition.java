@@ -8,6 +8,7 @@ package backend;
 /**
  *
  * @author geetika
+ * Edited by Ashutosh Agarwal to set all the flags correctly
  */
 public class Condition {
     public static final int EQ=0;     //Equal

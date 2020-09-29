@@ -1,3 +1,4 @@
+; Author Ashutosh Agarwal
 .quickSort:
     ;r5 = i
     ;r6 = j
@@ -71,7 +72,7 @@ main:
     MOV r5, #0 ;i==0
     .sorted:
         CMP r5, r2
-        BEQ .done ;has the loop reached N iterations?, i < n
+        BGT .done ;has the loop reached N iterations?, i < n
         LDR  r3, [r0], #4
         .print r3
         ADD  r5, r5, #1

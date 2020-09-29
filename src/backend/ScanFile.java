@@ -27,6 +27,8 @@ import frontend.handlers;
 /**
  *
  * @author geetika
+ * Edited by Ashutosh Agarwal to make sure shift operations work properly and execution
+ * begins with main in cmd mode
  */
 public class ScanFile implements Runnable {
     public static ihandling ob;
@@ -189,10 +191,6 @@ public class ScanFile implements Runnable {
                     }
 
                     strLine = br.readLine();
-                    if (strLine.startsWith(";") || strLine.startsWith("@")) {
-                        // statement contains only a comment
-                        continue;
-                    }
                     if (strLine.contains(".thumb")) {
                         strLine = strLine.trim();
                         if (strLine.equalsIgnoreCase(".thumb")) {
@@ -241,7 +239,10 @@ public class ScanFile implements Runnable {
                     if (iasm != asm_dir.length) {
                         continue;
                     }
-
+                    if (strLine.startsWith(";") || strLine.startsWith("@")) {
+                        // statement contains only a comment
+                        continue;
+                    }
                     if ((strLine.startsWith(".read ") || strLine.startsWith(".READ "))) {
                         strLine = strLine.trim();
                         if (!(strLine.startsWith(".read") || strLine.startsWith(".READ "))) {
@@ -917,10 +918,6 @@ public class ScanFile implements Runnable {
                 // System.out.println("here1");
                 return;
             }
-            if (strLine.startsWith(";") || strLine.startsWith("@")) {
-                // statement contains only a comment
-                continue;
-            }
             if (strLine.contains(".thumb") || strLine.contains(".THUMB")) {
                 strLine = strLine.trim();
                 if (strLine.equalsIgnoreCase(".thumb")) {
@@ -968,6 +965,10 @@ public class ScanFile implements Runnable {
             }
             // System.out.println("here3");
             if (iasm != asm_dir.length) {
+                continue;
+            }
+            if (strLine.startsWith(";") || strLine.startsWith("@")) {
+                // statement contains only a comment
                 continue;
             }
             if (strLine.contains("read") || strLine.contains("READ")) {

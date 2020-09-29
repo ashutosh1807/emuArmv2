@@ -5,15 +5,16 @@
 
 package backend.instructions;
 
-import java.io.IOException;
-
 import backend.ScanFile;
 import frontend.FrontEnd;
 import frontend.handlers;
+import java.io.IOException;
+
 
 /**
  *
  * @author geetika
+ * Edited by Ashutosh Agarwal
  */
 public class MOV implements InsInterface3 {
     static int[] binaryconvert = null;
@@ -697,16 +698,18 @@ public class MOV implements InsInterface3 {
                 backend.convertToBinary.encodeRegister(no3, binaryconvert, 3, 2, 1, 0);
 
                 try {
-                    if (no2 == 15) {
+                    //Change done by Ashutosh Agarwal to make sure the file pointer is set correctly
+                    if (no3 == 14) {
+                        //only choice of src is pc
                         if (backend.Register.r[no3].b != backend.ScanFile.endOfProgram
                                 && backend.Register.r[no3].b != null) {
                             try {
                                 backend.ScanFile.br.seek(backend.Register.r[no3].b);
                                 backend.ScanFile.pos = backend.Register.r[no3].b.longValue();
                                 if (FrontEnd.build_flag == 0)
-                                    backend.Register.r[15].b = backend.Register.r[no3].b;
+                                    backend.Register.r[no2].b = backend.Register.r[no3].b + 8;
                                 else
-                                    backend.Register.r[15].b = 0;
+                                    backend.Register.r[no2].b = 0;
                             } catch (IOException ex) {
 
                                 if (handlers.cmd_var == 1) {
@@ -724,10 +727,9 @@ public class MOV implements InsInterface3 {
 
                             }
                         }
-
-                    } else if (no2 == 14) {
+                    } else if (no3 == 15) { 
                         if (FrontEnd.build_flag == 0) {
-                            backend.Register.r[no2].b = backend.Register.r[no3].b + 8;
+                            backend.Register.r[no2].b = backend.Register.r[no3].b;
                         } else
                             backend.Register.r[no2].b = 0;
                     } else {
@@ -777,13 +779,13 @@ public class MOV implements InsInterface3 {
 
                 try {
 
-                    if (no2 == 15) {
+                    if (no3 == 14) {
                         if (operand_2 != backend.ScanFile.endOfProgram && operand_2 != null) {
                             try {
                                 backend.ScanFile.br.seek(operand_2);
                                 backend.ScanFile.pos = operand_2.longValue();
                                 if (FrontEnd.build_flag == 0)
-                                    backend.Register.r[15].b = operand_2;
+                                    backend.Register.r[no2].b = operand_2 + 8;
                             } catch (IOException ex) {
 
                                 if (handlers.cmd_var == 1) {
@@ -802,9 +804,9 @@ public class MOV implements InsInterface3 {
                             }
                         }
 
-                    } else if (no2 == 14)
+                    } else if (no3 == 15)
                         if (FrontEnd.build_flag == 0)
-                            backend.Register.r[no2].b = operand_2 + 8;
+                            backend.Register.r[no2].b = operand_2;
                         else
                             backend.Register.r[no2].b = 0;
                     else {
